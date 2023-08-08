@@ -1,0 +1,26 @@
+﻿<Window x:Class="GetWebcam.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GetWebcam"
+        xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="566.292" Width="1221.348">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <Button x:Name="btn_preview" Click="btn_preview_Click" Content="preview" Height="50"></Button>
+            <Button x:Name="btn_capture" Click="btn_capture_Click" Content="capture" Height="50"></Button>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Loaded="StackPanel_Loaded">
+
+            <WindowsFormsHost Name="WinFormsHost" Margin="0"  Height="512" Width="768" Background="{x:Null}">
+                <wf:Panel x:Name="WebcamPanel"></wf:Panel>
+            </WindowsFormsHost>
+        </StackPanel>
+    </Grid>
+</Window>
