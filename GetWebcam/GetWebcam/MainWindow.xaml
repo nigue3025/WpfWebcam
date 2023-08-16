@@ -6,21 +6,32 @@
         xmlns:local="clr-namespace:GetWebcam"
         xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
         mc:Ignorable="d"
-        Title="MainWindow" Height="566.292" Width="1221.348">
+        Title="MainWindow" Height="754.253" Width="1262.314" Loaded="Window_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0">
+            <ComboBox Name="cmbx_devices"></ComboBox>
+            <Button x:Name="btn_init" Click="btn_init_Click" Content="init" Height="50"></Button>
             <Button x:Name="btn_preview" Click="btn_preview_Click" Content="preview" Height="50"></Button>
             <Button x:Name="btn_capture" Click="btn_capture_Click" Content="capture" Height="50"></Button>
+            <Button x:Name="btn_inference" Click="btn_inference_Click" Content="live inference" Height="50"></Button>
+            <Button x:Name="btn_startRecording" Click="btn_startRecording_Click" Content="start record" Height="50"></Button>
+            <Button x:Name="btn_stopRecording" Click="btn_stopRecording_Click" Content="stop record" Height="50"></Button>
+            <Button x:Name="btn_closeCamera" Click="btn_closeCamera_Click"  Content="close camera" Height="50"></Button>
         </StackPanel>
         <StackPanel Grid.Column="1" Loaded="StackPanel_Loaded">
-
-            <WindowsFormsHost Name="WinFormsHost" Margin="0"  Height="512" Width="768" Background="{x:Null}">
+            <StackPanel Orientation="Horizontal">
+                <Label>URL</Label>
+                <TextBox x:Name="txtbx_url" Width="1000">http://127.0.0.1:5002/detect_logo</TextBox>
+            </StackPanel>
+            <WindowsFormsHost Name="WinFormsHost" Margin="0"  Height="256" Width="394" Background="{x:Null}">
                 <wf:Panel x:Name="WebcamPanel"></wf:Panel>
             </WindowsFormsHost>
+            <Image x:Name="Image_Out" Margin="10,10,10,10" Height="256" Width="394"></Image>
+            <TextBox x:Name="txtblck_msg" Height="150"></TextBox>
         </StackPanel>
     </Grid>
 </Window>
